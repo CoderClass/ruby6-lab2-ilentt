@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   	 if @user.save
   	 	flash[:success] = "Got it bro!"
   	 	session[:user_id] = @user.id
-  	 	redirect_to root_path
+  	 	redirect_to users_path
   	 else
   	 	flash[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
   	 	render 'new'
@@ -23,7 +23,7 @@ end
 private
 
 def user_params 
-	params.require(:user).permit(:name, :email, :password, :image_url)
+	params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_url)
 end
 
 end
