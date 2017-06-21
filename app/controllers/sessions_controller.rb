@@ -15,4 +15,14 @@ class SessionsController < ApplicationController
   	 	render 'new'
   	 end
   end
+
+  def destroy
+  	@user = User.find_by(params[:email])
+    if @user_id != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end
+
+    @user.destroy
+    redirect_to root_path
+  end
 end

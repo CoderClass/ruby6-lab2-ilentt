@@ -34,7 +34,13 @@
       </div>
     </nav>
 
+  <div class="container-fluid">
+    <%= render 'navbar' %>
+  </div>
+  <div class="container-fluid">
+    <%= flash_messages %>
     <%= yield %>
+  </div>
 
     <footer class="footer-12">
       <div class="container">
